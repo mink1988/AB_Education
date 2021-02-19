@@ -17,16 +17,19 @@ namespace AB_Education.Controllers
     {
         private readonly ABEducationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public SchoolClassesController(ABEducationDbContext context, UserManager<ApplicationUser> userManager)
+        public SchoolClassesController(ABEducationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         // GET: SchoolClasses
         public async Task<IActionResult> Index()
         {
+
             var classes = await _context.SchoolClasses.ToListAsync();
 
             foreach(var schoolClass in classes)
@@ -35,6 +38,9 @@ namespace AB_Education.Controllers
             }
 
             return View(classes);
+
+
+
         }
 
         // GET: SchoolClasses/Details/5
@@ -79,6 +85,8 @@ namespace AB_Education.Controllers
             return View(schoolClass);
         }
 
+
+
         // GET: SchoolClasses/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
@@ -92,8 +100,12 @@ namespace AB_Education.Controllers
             {
                 return NotFound();
             }
+
             return View(schoolClass);
         }
+
+
+
 
         // POST: SchoolClasses/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.

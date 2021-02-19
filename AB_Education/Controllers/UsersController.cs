@@ -23,13 +23,6 @@ namespace AB_Education.Controllers
             _roleManager = roleManager;
         }
 
-        //private readonly IIdentityService _identityService;
-
-        //public UsersController(IIdentityService identityService)
-        //{
-        //    _identityService = identityService;
-        //}
-
         public async Task<IActionResult> Index()
         {
             ViewBag.Admins = await _userManager.GetUsersInRoleAsync("Admin");

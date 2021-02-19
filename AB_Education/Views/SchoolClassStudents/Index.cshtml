@@ -13,10 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SchoolClass)
+                @Html.DisplayNameFor(model => model.SchoolClass.ClassName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StudentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolClass.Teacher)
             </th>
         </tr>
     </thead>
@@ -26,14 +29,17 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SchoolClass.ClassName)
             </td>
-            
             <td>
-                @Html.DisplayFor(modelItem => item.SchoolClass.SchoolClassStudents)
+                @Html.DisplayFor(modelItem => item.StudentId)
             </td>
             <td>
+            @Html.DisplayFor(modelItem => item.SchoolClass.TeacherId)
+            </td>
+
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
+            <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
             </td>
         </tr>
 }

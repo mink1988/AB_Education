@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using AB_Education.Data;
 using AB_Education.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AB_Education.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SchoolClassStudentsController : Controller
     {
         private readonly ABEducationDbContext _context;
@@ -26,7 +28,11 @@ namespace AB_Education.Controllers
         public async Task<IActionResult> Index()
         {
             var aBEducationDbContext = _context.SchoolClassStudents.Include(s => s.SchoolClass);
+         
+            
             return View(await aBEducationDbContext.ToListAsync());
+ 
+
         }
 
         // GET: SchoolClassStudents/Details/5
@@ -52,8 +58,10 @@ namespace AB_Education.Controllers
         public async Task<IActionResult> Create()
         {
             var students = await _userManager.GetUsersInRoleAsync("Student");
+            //var teachers = await _userManager.GetUsersInRoleAsync("Teachers");
 
-            ViewData["StudentId"] = new SelectList(students, "Id", "DisplayName");
+            //ViewData["TeachersId"] = new SelectList(teachers, "DisplayName", "DisplayName");
+            ViewData["StudentId"] = new SelectList(students, "DisplayName", "DisplayName");
             ViewData["SchoolClassId"] = new SelectList(_context.SchoolClasses, "Id", "ClassName");
             return View();
         }

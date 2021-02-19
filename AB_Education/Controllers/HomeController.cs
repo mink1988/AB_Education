@@ -1,5 +1,6 @@
 ﻿using AB_Education.Models;
 using AB_Education.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace AB_Education.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

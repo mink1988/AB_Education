@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<AB_Education.Entities.SchoolClass>
 
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -18,23 +19,28 @@
             <th>
                 @Html.DisplayNameFor(model => model.Teacher)
             </th>
+            @*<th>@Html.DisplayNameFor(model => model.SchoolClassStudents)</th>*@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClassName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Teacher.DisplayName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Teacher.DisplayName)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.SchoolClassStudents)
+                </td>*@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
