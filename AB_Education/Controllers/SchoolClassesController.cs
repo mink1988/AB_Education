@@ -9,6 +9,7 @@ using AB_Education.Data;
 using AB_Education.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using AB_Education.Models;
 
 namespace AB_Education.Controllers
 {
@@ -29,18 +30,22 @@ namespace AB_Education.Controllers
         // GET: SchoolClasses
         public async Task<IActionResult> Index()
         {
+            var classEntities = await _context.SchoolClasses.ToListAsync();
+            var classModels = new List<ClassViewModel>();
 
-            var classes = await _context.SchoolClasses.ToListAsync();
-
-            foreach(var schoolClass in classes)
+            foreach(var entity in classEntities)
             {
-                schoolClass.Teacher = await _userManager.Users.FirstOrDefaultAsync(au => au.Id == schoolClass.TeacherId);
+                var teacher = await _userManager.Users.FirstOrDefaultAsync(au => au.Id == entity.TeacherId);
+                var model = new ClassViewModel
+                {
+                    ClassName = entity.ClassName,
+                    TeacherName = teacher.DisplayName
+                };
+
+                classModels.Add(model);
             }
 
-            return View(classes);
-
-
-
+            return View(classModels);
         }
 
         // GET: SchoolClasses/Details/5

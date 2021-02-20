@@ -9,8 +9,8 @@ namespace AB_Education.Models
 {
     public class ClassViewModel
     {
-        public SchoolClass schoolClasses { get; set; }
-        public IEnumerable<ApplicationUser> Teachers { get; set; }
-        public IEnumerable<SchoolClassStudent> Students { get; set; }
+       public Guid Id { get; set; }
+       public string ClassName { get; set; }
+       public string TeacherName { get; set; }
     }
 }

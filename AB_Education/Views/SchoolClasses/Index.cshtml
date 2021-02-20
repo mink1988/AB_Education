@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AB_Education.Entities.SchoolClass>
+﻿@model IEnumerable<AB_Education.Models.ClassViewModel>
 
 
 @{
@@ -17,7 +17,7 @@
                 @Html.DisplayNameFor(model => model.ClassName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Teacher)
+                @Html.DisplayNameFor(model => model.TeacherName)
             </th>
             @*<th>@Html.DisplayNameFor(model => model.SchoolClassStudents)</th>*@
         </tr>
@@ -30,7 +30,7 @@
                     @Html.DisplayFor(modelItem => item.ClassName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Teacher.DisplayName)
+                    @Html.DisplayFor(modelItem => item.TeacherName)
                 </td>
                 @*<td>
                     @Html.DisplayFor(modelItem => item.SchoolClassStudents)

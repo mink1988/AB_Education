@@ -17,14 +17,8 @@ namespace AB_Education.Entities
 
         public Guid Id { get; set; }
         public string ClassName { get; set; }
-
-        [DisplayName("Teacher")]
         public string TeacherId { get; set; }
-
-        
-        
-        
-        public virtual ApplicationUser Teacher { get; set; }
+  
         public virtual ICollection<SchoolClassCourse> SchoolClassCourses { get; set; }
         public virtual ICollection<SchoolClassStudent> SchoolClassStudents { get; set; }
     }
