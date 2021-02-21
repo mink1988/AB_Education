@@ -14,10 +14,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ClassName)
+                Class Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TeacherName)
+                Teacher
             </th>
         </tr>
     </thead>
@@ -31,14 +31,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.TeacherName)
                 </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.SchoolClassStudents)
-                </td>*@
-                @*<td>*@
-                    @*<a asp-action="Edit" asp-route-id="@item.TeacherName">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.TeacherName">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.TeacherName">Delete</a>*@
-                @*</td>*@
+
             </tr>
         }
     </tbody>

@@ -11,11 +11,6 @@ namespace AB_Education.Services
    public interface IIdentityService
     {
         Task CreateRootAccountAsync();
-        //IEnumerable<ApplicationUser> GetAllUsers();
-
-        //IEnumerable<IdentityRole> GetAllRoles();
-
-        //Task<IEnumerable<UserViewModel>> GetAllUsersWithRolesAsync();
-        
+          
     }
 }
