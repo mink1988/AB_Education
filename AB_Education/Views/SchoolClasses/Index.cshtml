@@ -19,7 +19,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.TeacherName)
             </th>
-            @*<th>@Html.DisplayNameFor(model => model.SchoolClassStudents)</th>*@
         </tr>
     </thead>
     <tbody>
@@ -35,11 +34,11 @@
                 @*<td>
                     @Html.DisplayFor(modelItem => item.SchoolClassStudents)
                 </td>*@
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+                @*<td>*@
+                    @*<a asp-action="Edit" asp-route-id="@item.TeacherName">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TeacherName">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TeacherName">Delete</a>*@
+                @*</td>*@
             </tr>
         }
     </tbody>

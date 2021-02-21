@@ -38,8 +38,8 @@ namespace AB_Education.Controllers
                 {
                     Name = entity.StudentId,
                     ClassName = entity.SchoolClass.ClassName,
-                    TeacherName = teacher?.DisplayName
-                };
+                    TeacherName = teacher?.DisplayName                  
+            };
 
                 studentModels.Add(model);
             }
@@ -70,9 +70,7 @@ namespace AB_Education.Controllers
         public async Task<IActionResult> Create()
         {
             var students = await _userManager.GetUsersInRoleAsync("Student");
-            //var teachers = await _userManager.GetUsersInRoleAsync("Teachers");
-
-            //ViewData["TeachersId"] = new SelectList(teachers, "DisplayName", "DisplayName");
+         
             ViewData["StudentId"] = new SelectList(students, "DisplayName", "DisplayName");
             ViewData["SchoolClassId"] = new SelectList(_context.SchoolClasses, "Id", "ClassName");
             return View();
